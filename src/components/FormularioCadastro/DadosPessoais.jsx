@@ -16,7 +16,7 @@ function FormularioCadastro({aoEnviar, validarCPF}) {
         aoEnviar({nome, sobrenome, cpf, novidades, promocoes});
       }}
     >
-      <TextField
+      <TextField required
         value={nome}
         onChange={(event) => {
           setNome(event.target.value);
@@ -27,7 +27,7 @@ function FormularioCadastro({aoEnviar, validarCPF}) {
         margin="normal"
         fullWidth
       />
-      <TextField
+      <TextField required
         value={sobrenome}
         onChange={(event) => {
           setSobrenome(event.target.value);
@@ -38,7 +38,7 @@ function FormularioCadastro({aoEnviar, validarCPF}) {
         margin="normal"
         fullWidth
       />
-      <TextField
+      <TextField required
         value={cpf}
         onChange={(event) => {
           setCpf(event.target.value);
