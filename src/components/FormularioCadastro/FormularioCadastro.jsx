@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import DadosEntregas from "./DadosEntregas";
 import DadosPessoais from './DadosPessoais';
 import DadosUsuarios from './DadosUsuarios';
@@ -6,13 +7,28 @@ import DadosUsuarios from './DadosUsuarios';
 function FormularioCadastro({aoEnviar, validarCPF}) {
 
   const [etapaAtual, setEtapaAtual] = useState(0)
-
-  const formularios = [
-    <DadosUsuarios aoEnviar={proximo}/>,
-    <DadosPessoais aoEnviar={proximo} validarCPF={validarCPF}/>,
-    <DadosEntregas aoEnviar={aoEnviar}/>];
+  const [dadosColetados, setDados] = useState({})
   
-  function proximo (dados){
+  useEffect(()=>{ //usado para atualizar estado e desmontar compponente
+    //sempre que estado for atualizado
+    console.log(dadosColetados);
+  })
+  
+  
+  const formularios = [
+    <DadosUsuarios aoEnviar={coletarDados}/>,
+    <DadosPessoais aoEnviar={coletarDados} validarCPF={validarCPF}/>,
+    <DadosEntregas aoEnviar={coletarDados}/>];
+
+  
+
+  function coletarDados(dados){
+    setDados({...dadosColetados, ...dados})
+    console.log(dadosColetados);
+    proximo()
+  }
+
+  function proximo (){
     setEtapaAtual(etapaAtual+1)
   }
 
