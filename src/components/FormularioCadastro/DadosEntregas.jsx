@@ -20,6 +20,7 @@ function DadosEntregas({aoEnviar}) {
                 setCep(event.target.value)
             }}
             id="cep "
+            name="cep"
             label="CEP" type="number"
             variant="outlined"
             margin="normal"  />
@@ -30,6 +31,7 @@ function DadosEntregas({aoEnviar}) {
                 setEndereco(event.target.value)
             }}
             id="Endereco "
+            name="endereco"
             label="Endereco"
             type="text"
             variant="outlined"
@@ -42,6 +44,7 @@ function DadosEntregas({aoEnviar}) {
                 setNumero(event.target.value)
             }}
             id="numero"
+            name="numero"
             label="Numero"
             type="number"
             variant="outlined"
@@ -53,6 +56,7 @@ function DadosEntregas({aoEnviar}) {
                 setCidade(event.target.value)
             }}
             id="cidade"
+            name="cidade"
             label="Cidade"
             type="text"
             variant="outlined"
@@ -64,6 +68,7 @@ function DadosEntregas({aoEnviar}) {
                 setEstado(event.target.value)
             }}
             id="Estado"
+            name="estado"
             label="Estado"
             type="text"
             variant="outlined"
