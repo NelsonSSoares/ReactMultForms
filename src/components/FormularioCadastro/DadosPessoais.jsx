@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
+import validacoesCadastro from '../../context/validacoesCadastro';
 
-function FormularioCadastro({aoEnviar, validacoes}) {
+function FormularioCadastro({aoEnviar}) {
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
   const [cpf, setCpf] = useState("");
@@ -9,6 +10,8 @@ function FormularioCadastro({aoEnviar, validacoes}) {
   const [novidades, setNovidades] = useState(false);
   const [erros, setErros] = useState({cpf:{valido:true, texto:""}, nome:{valido:true, texto:""}})
   
+  const validacoes = useContext(validacoesCadastro) //importanto e atribuindo validacoees
+
   function validarCampos(event){
     const {name, value} = event.target;
     const novoEstado = {...erros}
@@ -71,7 +74,7 @@ function FormularioCadastro({aoEnviar, validacoes}) {
           setCpf(event.target.value);
         }}
 
-        onBlur={validarCampos()}
+        onBlur={validarCampos}
         error={!erros.cpf.valido}
         helperText={erros.cpf.texto}
         id="CPF"
